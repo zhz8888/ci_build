@@ -13,7 +13,6 @@ jobs:
            repo init -u https://github.com/PixelExperience/manifest.git -b twelve-plus --depth 1
            repo sync -c --force-sync --no-clone-bundle --no-tags
            git clone https://github.com/coolscode/patches.git --depth 1
-           bash patches/apply.sh pe
            git clone https://jihulab.com/zhz8888-Developing/land/local_manifests.git -b pe-twelve --depth 1 .repo/local_manifests
            repo sync -c --force-sync --no-clone-bundle --no-tags
            source build/envsetup.sh
