@@ -1,0 +1,32 @@
+version: 2.1
+jobs:
+  pe_build:
+   docker:
+      - image: zhz1021/ubuntu-android-buildbot:20.04-pe
+   resource_class: 2xlarge
+   steps:
+      - run:
+          name: Start to build
+          command: |
+           bash /root/build_land_userdebug.sh
+      - store_artifacts:
+          path: /buildout/repo-*.log
+          when: always
+      - store_artifacts:
+          path: /buildout/build-*.log
+          when: always
+      - store_artifacts:
+          path: /buildout/PixelExperience-*.zip
+      - store_artifacts:
+          path: /buildout/PixelExperience-*.sha256sum
+      - store_artifacts:
+          path: /buildout/boot.img
+      - store_artifacts:
+          path: /buildout/recovery.img
+      - store_artifacts:
+          path: /buildout/*eng*.zip
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - lineage_build
