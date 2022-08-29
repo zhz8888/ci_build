@@ -3,7 +3,7 @@ jobs:
   pe_build:
    docker:
       - image: zhz1021/ubuntu-android-buildbot:20.04-pe
-   resource_class: 2xlarge
+   resource_class: large
    steps:
       - run:
           name: Start to build
