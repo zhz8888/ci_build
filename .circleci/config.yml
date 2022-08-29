@@ -8,7 +8,15 @@ jobs:
       - run:
           name: Start to build
           command: |
-           bash /root/build_land_userdebug.sh
+           repo init -u https://github.com/PixelExperience/manifest.git -b twelve-plus --depth 1
+           repo sync -c --force-sync --no-clone-bundle --no-tags
+           git clone https://github.com/coolscode/patches.git --depth 1
+           bash patches/apply.sh pe
+           git clone https://jihulab.com/zhz8888-Developing/land/local_manifests.git -b pe-twelve --depth 1 .repo/local_manifests
+           repo sync -c --force-sync --no-clone-bundle --no-tags
+           source build/envsetup.sh
+           lunch aosp_land-userdebug
+           mka bacon | tee -a build-land.log
       - store_artifacts:
           path: /buildout/repo-*.log
           when: always
