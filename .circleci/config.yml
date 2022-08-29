@@ -16,7 +16,7 @@ jobs:
            git clone https://jihulab.com/zhz8888-Developing/land/local_manifests.git -b lineage-19.1 --depth 1 .repo/local_manifests
            repo sync -c --force-sync --no-clone-bundle --no-tags
            source build/envsetup.sh
-           lunch aosp_land-userdebug
+           lunch lineage_land-userdebug
            mka bacon | tee -a build-land.log
       - store_artifacts:
           path: /buildout/repo-*.log
