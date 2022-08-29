@@ -8,6 +8,8 @@ jobs:
       - run:
           name: Start to build
           command: |
+           git config --global user.name "zhz8888"
+           git config --global user.email "zhz1021@gmail.com"
            repo init -u https://github.com/PixelExperience/manifest.git -b twelve-plus --depth 1
            repo sync -c --force-sync --no-clone-bundle --no-tags
            git clone https://github.com/coolscode/patches.git --depth 1
