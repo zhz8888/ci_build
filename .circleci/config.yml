@@ -3,7 +3,7 @@ jobs:
   lineage_build:
    docker:
       - image: zhz1021/ubuntu-android-buildbot:20.04-lineage
-   resource_class: 2xlarge
+   resource_class: large
    steps:
       - run:
           name: Start to build
