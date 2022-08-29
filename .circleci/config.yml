@@ -29,4 +29,4 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - lineage_build
+      - pe_build
